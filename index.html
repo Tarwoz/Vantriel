@@ -15,6 +15,19 @@
 
 <div class="noise-overlay" aria-hidden="true"></div>
 
+<nav class="scroll-rail" id="scrollRail" aria-hidden="true">
+  <span class="rail-track"></span>
+  <span class="rail-fill" id="railFill"></span>
+  <ul>
+    <li data-target="hero"><span></span></li>
+    <li data-target="system"><span></span></li>
+    <li data-target="collection"><span></span></li>
+    <li data-target="why"><span></span></li>
+    <li data-target="pricing"><span></span></li>
+    <li data-target="notify"><span></span></li>
+  </ul>
+</nav>
+
 <header class="site-header">
   <a href="#top" class="wordmark">VANTRIEL</a>
   <nav class="site-nav" aria-label="Primary">
@@ -31,14 +44,10 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-bg" aria-hidden="true">
-      <div class="hero-shell">
-        <div class="shell-ring" data-ring="cleanser"></div>
-        <div class="shell-cap"></div>
-        <div class="shell-knurl"></div>
-        <div class="shell-body">
-          <span class="shell-label">VANTRIEL</span>
-        </div>
-        <div class="shell-base"></div>
+      <div class="hero-glow hero-glow--a"></div>
+      <div class="hero-glow hero-glow--b"></div>
+      <div class="hero-product" id="heroProduct">
+        <img src="assets/products/cleanser.webp" alt="" loading="eager" width="900" height="1350">
       </div>
     </div>
     <div class="hero-content">
@@ -55,6 +64,7 @@
 
   <!-- THE SYSTEM -->
   <section class="section system" id="system">
+    <div class="system-atmosphere" aria-hidden="true"></div>
     <div class="section-head reveal">
       <p class="eyebrow">The mechanism</p>
       <h2>The mechanism is the product.</h2>
@@ -130,12 +140,8 @@
     <div class="product-grid">
       <article class="product-card reveal" data-product="cleanser">
         <div class="product-visual">
-          <div class="p-shell p-shell--pump">
-            <div class="p-ring"></div>
-            <div class="p-pump-head"><div class="p-pump-nozzle"></div></div>
-            <div class="p-knurl"></div>
-            <div class="p-body"><span>VANTRIEL</span></div>
-            <div class="p-base"></div>
+          <div class="product-tile">
+            <img src="assets/products/cleanser.webp" alt="Vantriel Cleanser shell in brushed gunmetal with a knurled grip band and foaming pump head" loading="lazy" width="900" height="1350">
           </div>
         </div>
         <div class="product-info">
@@ -147,12 +153,8 @@
 
       <article class="product-card reveal" data-product="moisturizer">
         <div class="product-visual">
-          <div class="p-shell p-shell--airless">
-            <div class="p-ring"></div>
-            <div class="p-airless-head"></div>
-            <div class="p-knurl"></div>
-            <div class="p-body"><span>VANTRIEL</span></div>
-            <div class="p-base"></div>
+          <div class="product-tile">
+            <img src="assets/products/moisturizer.webp" alt="Vantriel Moisturizer shell in brushed gunmetal with knurled grip bands top and bottom" loading="lazy" width="900" height="1350">
           </div>
         </div>
         <div class="product-info">
@@ -164,12 +166,8 @@
 
       <article class="product-card reveal" data-product="spf">
         <div class="product-visual">
-          <div class="p-shell p-shell--mist">
-            <div class="p-ring"></div>
-            <div class="p-mist-head"><div class="p-mist-nozzle"></div></div>
-            <div class="p-knurl"></div>
-            <div class="p-body"><span>VANTRIEL</span></div>
-            <div class="p-base"></div>
+          <div class="product-tile">
+            <img src="assets/products/spf.webp" alt="Vantriel SPF+ shell in brushed gunmetal with a fine mist spray head" loading="lazy" width="900" height="1350">
           </div>
         </div>
         <div class="product-info">

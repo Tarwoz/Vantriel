@@ -22,6 +22,64 @@
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
 
+  /* ---- scroll progress rail ---- */
+  var railFill = document.getElementById("railFill");
+  var railItems = document.querySelectorAll(".scroll-rail li");
+  var sectionIds = ["hero", "system", "collection", "why", "pricing", "notify"];
+  var sections = sectionIds
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+
+  function updateRail() {
+    var doc = document.documentElement;
+    var scrolled = doc.scrollTop;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var pct = max > 0 ? (scrolled / max) * 100 : 0;
+    if (railFill) railFill.style.height = pct + "%";
+
+    var current = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top < window.innerHeight * 0.5) {
+        current = sections[i];
+      }
+    }
+    railItems.forEach(function (li) {
+      li.classList.toggle("active", li.getAttribute("data-target") === current.id);
+    });
+  }
+
+  if (railFill) {
+    window.addEventListener("scroll", updateRail, { passive: true });
+    window.addEventListener("resize", updateRail);
+    updateRail();
+  }
+
+  railItems.forEach(function (li) {
+    li.addEventListener("click", function () {
+      var target = document.getElementById(li.getAttribute("data-target"));
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  /* ---- product card 3D tilt ---- */
+  var tiltCards = document.querySelectorAll(".product-card");
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!prefersReducedMotion) {
+    tiltCards.forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform =
+          "rotateY(" + (x * 10) + "deg) rotateX(" + (-y * 10) + "deg) translateY(-4px)";
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "";
+      });
+    });
+  }
+
   /* ---- magnetic pod alignment demo ---- */
   var demoPod = document.getElementById("demoPod");
   var demoRing = document.getElementById("demoRing");
